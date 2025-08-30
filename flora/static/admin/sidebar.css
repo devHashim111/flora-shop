@@ -1,0 +1,30 @@
+/* Full-length sidebar color */
+.navbar-dark {
+    background-color: #009688 !important;  /* Change to your theme color */
+}
+
+/* Fix the top logo area background */
+.brand-link {
+    background-color: #00796B !important; /* Adjust to match the sidebar */
+}
+
+/* Sidebar full height */
+.main-sidebar {
+    background-color: #009688 !important;  /* Match sidebar to theme */
+    height: 100vh !important; /* Ensure it covers the full height */
+}
+
+/* Sidebar navigation items */
+.nav-sidebar .nav-item > a {
+    color: white !important; /* Ensure good contrast */
+}
+
+/* Sidebar icons */
+.nav-sidebar .nav-icon {
+    color: white !important;
+}
+
+/* On hover effect */
+.nav-sidebar .nav-item:hover {
+    background-color: #007D84 !important; /* Darker teal on hover */
+}

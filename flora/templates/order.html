@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Success / Error Message Boxes -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert 
+                        {% if message.tags == 'success' %}alert-success
+                        {% elif message.tags == 'error' or message.tags == 'danger' %}alert-danger
+                        {% else %}alert-info
+                        {% endif %}
+                        alert-dismissible fade show"
+                 role="alert"
+                 style="background-color: {% if message.tags == 'success' %}#d4edda{% elif message.tags == 'error' or message.tags == 'danger' %}#f8d7da{% else %}#e2e3e5{% endif %}; border: none; font-size: 1rem;">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+   
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row g-4">
+            
+            <!-- Product Image Section -->
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100 overflow-hidden">
+                    {% with img=product.images.first %}
+                        {% if img.image_url %}
+                            <img src="{{ img.image_url }}" class="img-fluid rounded w-100 h-100" alt="{{ product.product_name }}"
+                                 style="object-fit: cover; border-radius: 0.5rem;">
+                        {% elif img.image %}
+                            <img src="{{ img.image.url }}" class="img-fluid rounded w-100 h-100" alt="{{ product.product_name }}"
+                                 style="object-fit: cover; border-radius: 0.5rem;">
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+
+            <!-- Product Details & Order Form -->
+            <div class="col-md-6">
+                <div class="card shadow-sm p-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <h4 class="fw-bold mb-2">{{ product.product_name }}</h4>
+                        <p class="text-muted mb-3">Price:
+                            <span class="fw-bold text-success">Rs {{ product.product_price }}</span>
+                        </p>
+
+                        <input type="hidden" name="product" value="{{ product.product.id }}">
+
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" value="1" min="1" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phoneno1" class="form-label">Phone Number 1</label>
+                            <input type="text" class="form-control" id="phoneno1" name="phoneno1" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phoneno2" class="form-label">Phone Number 2 (Optional)</label>
+                            <input type="text" class="form-control" id="phoneno2" name="phoneno2">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn hoome w-100 mt-3">Submit Order</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- About Us Section -->
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h2 class="display-5 font-weight-bold">About Us</h2>
+            <p class="mt-4">Welcome to <strong>Flora</strong>, where beauty and wellness are nurtured with nature’s finest ingredients. We specialize in handmade hair care and skin care products, crafted with love and care to bring out the natural beauty within. From nourishing oils to revitalizing creams, each product is designed to promote healthy hair and glowing skin.</p>
+            <p class="font-italic">Our philosophy is simple: <strong>"Healthy Skin is a 24/7 filter."</strong> Experience the difference that nature can make in your beauty routine with our carefully curated products.</p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="https://images.unsplash.com/photo-1616091278598-8821d9041d93?auto=format&fit=crop&w=600&q=80" 
+                 alt="Flora Logo - Natural Skincare" 
+                 class="img-fluid rounded-circle shadow" 
+                 style="width: 300px;">
+        </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="row mt-5">
+        <div class="col-md-12 text-center bg-dark text-white py-4">
+            <h3 class="display-6 mb-4">Get in Touch</h3>
+            <div class="d-flex justify-content-center flex-wrap">
+                <!-- Email -->
+                <div class="mx-3 my-2">
+                    <a href="mailto:dev.hashim@outlook.com" target="_blank" class="text-white text-decoration-none">
+                        <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Email Icon" class="img-fluid" style="width: 36px;">
+                        <span class="d-block mt-2">Email</span>
+                    </a>
+                </div>
+                <!-- WhatsApp -->
+                <div class="mx-3 my-2">
+                    <a href="https://wa.me/03444092124" target="_blank" class="text-white text-decoration-none">
+                        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" class="img-fluid" style="width: 36px;">
+                        <span class="d-block mt-2">WhatsApp</span>
+                    </a>
+                </div>
+                <!-- Instagram -->
+                <div class="mx-3 my-2">
+                    <a href="https://www.instagram.com/" target="_blank" class="text-white text-decoration-none">
+                        <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram Icon" class="img-fluid" style="width: 36px;">
+                        <span class="d-block mt-2">Instagram</span>
+                    </a>
+                </div>
+                <!-- YouTube -->
+                <div class="mx-3 my-2">
+                    <a href="https://www.youtube.com/" target="_blank" class="text-white text-decoration-none">
+                        <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" alt="YouTube Icon" class="img-fluid" style="width: 36px;">
+                        <span class="d-block mt-2">YouTube</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Maps Location -->
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <h3 class="display-6 mb-3">Our Location</h3>
+            <div class="map-container rounded shadow-sm" style="border: 2px solid #ddd;">
+                <img src="https://images.unsplash.com/photo-1505236731920-542dcfbaf6f0?auto=format&fit=crop&w=1000&q=80" 
+                     alt="Map to Flora Store" 
+                     class="img-fluid rounded" 
+                     style="width: 100%; max-height: 400px;">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

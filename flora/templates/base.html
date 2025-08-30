@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shop-amber-nine-46.vercel.app">
+<meta property="og:title" content="Raveeha Revitalizing">
+<meta property="og:description" content="Raveeha beauty and health shop">
+<meta property="og:image" content="https://res.cloudinary.com/dftwpyllt/image/upload/v1752993632/Screenshot_from_2025-07-20_11-35-18_kxqlj3.png">
+
+<title> Flora  </title> 
+ 
+   <!-- Bootstrap CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+
+    <!-- Google Fonts for brand name styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Bootstrap JS (for dropdowns to work) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+        :root{
+            --accent:rgb(248, 240, 164);
+            --accent-dark:#C89E38;
+            --text-dark:#212121;
+            --surface:#FFFFFF;
+            --surface-dark:#111111;
+          }
+          
+        body {
+            padding-top: 80px; 
+            background:rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Brand styling next to the logo */
+        .brand-name {
+            font-family: Poppins;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-left: 10px;
+        }
+
+        /* Card styling */
+        .card {
+            width: 100%;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            padding: 4px;
+            
+        }
+        .card:hover {
+            border:2px solid cyan;
+            border-radius:9px;
+            padding:0;
+            transition: ease-out 
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Dropdown and button spacing */
+        .btn-group, .dropdown-separator, .cart-btn-container {
+            margin-right: 10px;
+        }
+
+        /* Navbar */
+        .navbar-nav .btn-outline-success {
+            margin-left: 20px;
+        }
+        /* buttons */
+.btn-accent{
+  background:var(--accent);
+  color:#FFFFFF;
+  border:none;
+}
+.btn-outline-accent{
+  background:#FFFFFF;
+  border:1px solid var(--accent);
+  color:var(--text-dark);
+}
+.price-chip{
+ 
+  background-color:#FFB443;
+}
+      
+        /* Mobile-specific styling */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+                background:#00585E;
+                color:#F5F5F5;
+            }
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                background: #00585E;
+                color:#F5F5F5;
+            }
+            footer { 
+                background: #36454F;
+                color: #FFFFFF;
+              }
+              
+              .btn-primary {
+                background: #00585E;
+                color: #F5F5F5;
+              }
+            /* Mobile layout for dropdowns and cart button */
+            .dropdown-group {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                width: 100%;
+            }
+
+            .cart-btn-container {
+                align-self: flex-start;
+                background;#00585E;
+                color:white;
+            }
+
+            /* Search bar under dropdowns and cart button */
+            .search-container {
+                margin-top: 8px;
+                width: 100%;
+                text-align: center;
+            }
+
+            form {
+                margin-left: 0;
+            }
+        }
+
+        /* Adjustments for larger screens */
+        @media (min-width: 768px) {
+            /* Dropdowns aligned horizontally on larger screens */
+            .dropdown-group {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .cart-btn-container {
+                align-self: center;
+            }
+
+            .search-container {
+                margin-top: 0;
+            }
+.hoome {
+    background:#00585E;
+    color: #F5F5F5;
+}
+footer {
+    background: #36454F;
+    color: #F5F5F5;
+}
+.btn-primary {
+    background: #00585E;
+    color: #F5F5F5;
+  }
+  button.primary:hover {
+    background-color: #007D84;
+  }
+  .price-chip {
+    font-size: 0.95rem;
+    font-weight: bold;
+    background-color:rgb(95, 164, 167);
+    {% comment %} background-color: #28a745 !important; {% endcomment %}
+  } 
+  .search-wrapper {
+    position: relative;
+  }
+  .search-suggestion {
+    position: absolute;
+   
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 18px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 4px;
+  }
+  
+  .search-suggestion div {
+    padding: 10px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+  
+    /* Flexbox to center the text */
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+  
+  .search-suggestion div:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Remove bottom border from last item */
+  .search-suggestion div:last-child {
+    border-bottom: none;
+  }
+  
+      .navbar-nav .btn-outline-success {
+                margin-left: 30px;
+            }
+        }
+        @media (max-width: 991px) { /* Applies to mobile and tablet screens */
+            .offcanvas-start {
+                width: 40vh; /* Takes half of the screen width */
+                height: 100vh; /* Full screen height */
+            }
+            .fix {
+                padding: 20px; /* Adjust padding for smaller screens */
+
+            }
+        }
+        @media (max-width: 400px) { 
+            .fix {
+                padding: 55px 5px; /* Adjust padding for smaller screens */
+               
+                
+            }
+        }
+        /* Responsive Grid: col-6 for mobile, col-md-4 for desktop (2 per row on mobile) */
+  
+        .image-container {
+          width: 100%;
+          height: 230px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: white;
+          padding: 0;
+          margin: 0;
+        }
+      
+        .product-image {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+      
+        .product-card {
+          border: 2px solid;
+         
+          position: relative;
+          overflow: hidden;
+          transition: border 0.6s ease-in-out, transform 0.3s ease;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+      
+        .product-card:hover {
+          border: 2px solid #007D84; 
+          border-radius:15px;
+          border-image-slice: 1;
+          border-image-source: linear-gradient(90deg, cyan, teal);
+          transform: scale(1.015);
+        }
+      
+       .price-chip {
+          font-size: 0.95rem;
+          font-weight: bold;
+          background-color: #007D84;
+          {% comment %} background-color: #28a745 !important; {% endcomment %}
+        } 
+     
+        .product-name {
+          font-family: 'Segoe UI', 'Roboto', sans-serif;
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: #222;
+          letter-spacing: 0.3px;
+          text-align: center;
+          margin-top: 0.5rem;
+        }
+      
+        /* Hover icon container */
+        .icon-center-overlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          gap: 20px;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          z-index: 2;
+        }
+      
+        .product-card:hover .icon-center-overlay {
+          opacity: 1;
+        }
+      
+        /* Icon buttons */
+        .icon-btn {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background-color: #007D84;;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 2px solid transparent;
+          transition: all 0.4s ease;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      
+        .icon-btn i {
+          font-size: 22px;
+          color: #333;
+        }
+      
+        /* Order icon animation */
+        .order-icon:hover {
+          border-color:rgb(16, 78, 82);
+          background-color: #007D84;;
+          animation: borderPulse 1s infinite alternate;
+        }
+      
+        .cart-icon:hover {
+          border-color: rgb(16, 78, 82);
+          background-color: #007D84;
+          animation: borderPulseCart 1s infinite alternate;
+        }
+      
+        @keyframes borderPulse {
+          0% { border-color: #00bcd4; }
+          100% { border-color: #0097a7; }
+        }
+      
+        @keyframes borderPulseCart {
+          0% { border-color: #009688; }
+          100% { border-color: #00796b; }
+        }
+      
+        @media (max-width: 768px) {
+          /* Mobile adjustments */
+          .product-name {
+            font-size: 1.1rem;
+          }
+      
+          .icon-btn {
+            width: 42px;
+            height: 42px;
+          }
+      
+          .icon-btn i {
+            font-size: 20px;
+          }
+      
+          .image-container {
+            height: 190px;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar  hoome fixed-top" >
+    <div class="container">
+        <!-- Logo and Brand Name -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            {% comment %} <img src="https://res.cloudinary.com/dftwpyllt/image/upload/v1752564188/file_00000000d68c61f884a8dbe02ec891de_qhin6g.png" alt="Brand Logo" style="width: 90px; height: 60px;" rel="preload"> {% endcomment %}
+           <span class="brand-name ms-2 fw-bold font-effect-fire font-effect-emboss">Flora</span> 
+        </a>
+
+        <!-- Navbar Toggler (Mobile Menu) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Signup Button (Visible on Mobile & Large Screens) -->
+      
+       
+    </div>
+</nav>
+
+<!-- Mobile Sidebar (Offcanvas Menu) -->
+<div class="offcanvas hoome offcanvas-start " tabindex="-1" id="mobileNavbar" data-bs-backdrop="false">
+    <div class="offcanvas-header hoome">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="{% url "cart" %} ">
+                    Cart
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="{% url 'contact' %}">Contact</a>
+            </li>
+        </ul>
+
+        <!-- Signup Button (Inside Mobile Menu) -->
+        <div class="mt-3">
+            <a href="{% url 'signup' %}" class="btn btn-outline-warning  w-100 pb-2 mb-2">Signup</a>
+        </div>
+    </div>
+</div>
+
+    <!-- Main Search and Controls Section -->
+    <div class="container fix ">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center border-bottom ">
+            
+            <!-- Dropdowns and Cart Button Group for Mobile View -->
+            <div class="dropdown-group d-flex flex-row">
+               
+           
+                
+                <!-- Sort Dropdown -->
+                <div class="btn-group dropdown-separator">
+                    <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background: #007D84;">
+                        Sort by
+                    </button>
+                    <ul class="dropdown-menu">
+                        <form method="get" action="{% url 'home' %}">
+                            <button class="dropdown-item" type="submit" name="work" value="low">Price: Low to High</button>
+                        </form>
+                        <form method="get" action="{% url 'home' %}">
+                            <button class="dropdown-item" type="submit" name="work" value="high">Price: High to Low</button>
+                        </form>
+                        <form method="get" action="{% url 'home' %}">
+                            <button class="dropdown-item" type="submit" name="work" value="best">Best Selling</button>
+                        </form>
+                    </ul>
+                </div>
+
+                <!-- Cart Button -->
+                <div class="cart-btn-container">
+                    <a href="{% url 'cart' %}">
+                        <button class="btn px-2 hoome">
+                            <img src="https://cdn.iconscout.com/icon/free/png-512/free-cart-icon-download-in-svg-png-gif-file-formats--checkout-commerce-shopping-user-interface-pack-icons-83542.png?f=webp&w=256" class="img-fluid fw-bold" style="width:40px;height:20px;" rel="preload"> Cart
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+           <!-- Search Form for Mobile View -->
+<div class="search-container mb-2 pb-2">
+    <form class="d-flex align-items-center" role="search">
+        <input class="form-control mt-2" 
+            type="search" 
+            placeholder="Search Product" 
+            aria-label="Search" 
+            name="searchbox"
+            id="searchbox"
+            autocomplete="off">
+        
+        <button class="btn btn-outline-success text-dark ms-2 mt-2" type="submit" style="height:40px;">Search</button>
+    </form>
+
+<div class="search-wrapper">    <!-- Suggestions List -->
+    <div id="suggestions" class="search-suggestion "  class="list-group mt-2"></div>
+</div>
+</div>
+            
+            <!-- Dynamic Product List -->
+            
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock content %}
+
+    <!-- Footer -->
+    <footer class="py-3 mt-2">
+        <div class="container text-center">
+            <p class="mb-0 fw-bold">&copy; 2025 Flora. All rights reserved.</p>
+            <a href="#" class="text-dark">Privacy Policy</a> | 
+            <a href="#" class="text-dark">Terms of Service</a><br>
+            <span> Developed by </span> <a href="https://developer-hashim.vercel.app" target="_blank">Hashim Ali </a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script>
+        document.body.addEventListener("htmx:afterRequest", function(event) {
+            let suggestions = event.detail.xhr.response;
+            let dropdown = document.getElementById("search-suggestions");
+            dropdown.innerHTML = suggestions.map(p => `<div class="dropdown-item">${p}</div>`).join("");
+            dropdown.style.display = suggestions.length ? "block" : "none";
+        });
+    </script>
+
+    <!-- JavaScript for Fetch API -->
+<script>
+    document.getElementById("searchbox").addEventListener("input", function() {
+        let query = this.value.trim();
+        let suggestionsBox = document.getElementById("suggestions");
+
+        if (query.length > 1) {  // Only fetch if query has more than 1 character
+            fetch(`/search-suggestions/?q=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    suggestionsBox.innerHTML = "";
+                    if (data.length > 0) {
+                        data.forEach(product => {
+                            let item = document.createElement("a");
+                            item.href = `/?searchbox=${encodeURIComponent(product.name)}`;
+
+
+                            // Link to product page
+                            item.classList.add("list-group-item", "list-group-item-action");
+                            item.textContent = product.name;
+                            suggestionsBox.appendChild(item);
+                        });
+                    }
+                })
+                .catch(error => console.error("Error fetching suggestions:", error));
+        } else {
+            suggestionsBox.innerHTML = ""; // Clear suggestions when input is empty
+        }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function addToCart(event, productSlug) {
+        if (event) event.preventDefault();  // ✅ prevents default form submit if inside a <form>
+  
+        fetch(`/cart/add/?product_slug=${productSlug}`, {
+            method: 'GET',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Accept': 'application/json'
+            },
+            credentials: 'same-origin'
+        })
+        .then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+                return;
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (!data) return;
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Added!',
+                    text: data.message || 'Product added to cart.',
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops!',
+                    text: data.message || 'Could not add to cart.'
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Error adding to cart:", error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Something went wrong. Try again.'
+            });
+        });
+    }
+  </script>
+  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+   <!-- jsDelivr CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-whatever" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

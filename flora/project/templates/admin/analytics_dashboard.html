@@ -1,0 +1,38 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+<h2>Sales Analytics</h2>
+
+<canvas id="salesChart"></canvas>
+<canvas id="statusChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var ctx1 = document.getElementById('salesChart').getContext('2d');
+  var salesChart = new Chart(ctx1, {
+      type: 'line',
+      data: {
+          labels: {{ sales_labels|safe }},
+          datasets: [{
+              label: 'Total Sales',
+              data: {{ sales_values|safe }},
+              backgroundColor: 'rgba(54, 162, 235, 0.5)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 2
+          }]
+      }
+  });
+
+  var ctx2 = document.getElementById('statusChart').getContext('2d');
+  var statusChart = new Chart(ctx2, {
+      type: 'pie',
+      data: {
+          labels: {{ status_labels|safe }},
+          datasets: [{
+              data: {{ status_values|safe }},
+              backgroundColor: ['red', 'green', 'blue'],
+          }]
+      }
+  });
+</script>
+{% endblock %}

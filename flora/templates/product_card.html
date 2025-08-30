@@ -1,0 +1,157 @@
+<div class="col-6 col-md-4 mt-2 product_list">
+    <div class="card h-100 bg-light position-relative product-card" id="{{ product.product_slug }}" name="product_detail">
+  
+      <!-- Price Badge -->
+      <span class="price-chip badge position-absolute top-0 start-0 m-2 px-3 py-2 fs-6 rounded-pill shadow">
+        Rs {{ product.product_price }}
+      </span>
+  
+      <!-- Image -->
+      <a href="{% url 'product_detail' product.product_slug %}" class="product-link">
+        <div class="image-container">
+         
+          <img src="{{ product.product_image }}" class="product-image" alt="{{ product.product_name }}" loading="lazy">
+    
+        </div>
+      </a>
+  
+      <!-- Product Name -->
+      <div class="card-body text-center">
+        <h5 class="card-title product-name">{{ product.product_name }}</h5>
+      </div>
+  
+      <!-- Centered Hover Icons -->
+      <div class="icon-center-overlay">
+        <a href="/order/{{ product.product_slug }}" class="icon-btn order-icon" title="Order Now">
+          <i class="fas fa-truck"></i>
+        </a>
+        <button onclick="addToCart(event, '{{ product.product_slug }}')" class="icon-btn cart-icon" title="Add to Cart">
+          <i class="fas fa-cart-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Styles -->
+  <style>
+    /* Responsive Grid: col-6 for mobile, col-md-4 for desktop (2 per row on mobile) */
+  
+    .image-container {
+      width: 100%;
+      height: 230px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .product-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  
+    .product-card {
+      border: 2px solid #00585E ;
+      border-radius:13px;
+      position: relative;
+      overflow: hidden;
+      transition: border 0.6s ease-in-out, transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(196, 146, 11, 0.05);
+    }
+  
+    .product-card:hover {
+      border: 2px solid #007D84;
+      border-radius:15px;
+      border-image-slice: 1;
+     
+      transform: scale(1.015);
+    }
+  
+  
+    .product-name {
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #222;
+      letter-spacing: 0.3px;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  
+    /* Hover icon container */
+    .icon-center-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 2;
+    }
+  
+    .product-card:hover .icon-center-overlay {
+      opacity: 1;
+    }
+  
+    /* Icon buttons */
+    .icon-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid transparent;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .icon-btn i {
+      font-size: 22px;
+      color: #333;
+    }
+  
+    /* Order icon animation */
+    .order-icon:hover {
+      border-color: cyan;
+      background-color: #007D84;
+      animation: borderPulse 1s infinite alternate;
+    }
+  
+    .cart-icon:hover {
+      border-color: teal;
+      background-color: #007D84;
+      animation: borderPulseCart 1s infinite alternate;
+    }
+  
+ 
+    @media (max-width: 768px) {
+      /* Mobile adjustments */
+      .product-name {
+        font-size: 1.1rem;
+      }
+  
+      .icon-btn {
+        width: 42px;
+        height: 42px;
+      }
+  
+      .icon-btn i {
+        font-size: 20px;
+      }
+  
+      .image-container {
+        height: 190px;
+      }
+    }
+  </style>
+  
+  <!-- Font Awesome (only include once in your layout) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  

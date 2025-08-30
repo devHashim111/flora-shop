@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-lg " style="min-height: 100vh;">
+    <div class="row">
+        {% for product in product %}
+            {% include 'product_card.html' %}
+        {% empty %}
+            <p class="text-center">No products available.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="d-flex justify-content-center mt-4">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {% if product.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ product.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo; Previous</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for num in product.paginator.page_range %}
+                    {% if product.number == num %}
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if product.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ product.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">Next &raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Static Image Section -->
+    <div class="container mt-4 text-center">
+       
+    </div>
+</div>
+{% endblock content %}

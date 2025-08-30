@@ -1,0 +1,165 @@
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(to right, #46f8c3, #007D84) !important;
+    color: white !important;
+    width: auto;
+}
+
+/* Sidebar Full Background & Height */
+.nav {
+    background: linear-gradient(to bottom, #007D84, #20c997);
+    color: white !important;
+    height: 100%; /* Full Height */
+   
+    overflow-y: auto;
+    width: 250px;
+    transition: width 0.3s ease;
+}
+.sidebar {
+    background: linear-gradient(to bottom, #007D84, #20c997);
+    color: white !important;
+    height: 100vh; /* Full Height */
+   
+    overflow-y: auto;
+    width: 250px;
+    transition: width 0.3s ease;
+}
+/* Sidebar Brand (Logo Area) */
+.brand-link {
+    background: linear-gradient(to right, #20c997, #007bff);
+    color: white !important;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sidebar Links */
+.sidebar .nav-link {
+    color: white !important;
+    font-weight: bold;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar Icons */
+.sidebar .nav-link i {
+    color: white !important;
+    margin-right: 10px;
+}
+
+/* Sidebar Hover Effect */
+.sidebar .nav-link:hover {
+    background: rgba(2, 250, 209, 0.2);
+    border-radius: 8px;
+}
+
+/* Sidebar Active Link */
+.sidebar .nav-link.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-left: 4px solid white;
+    border-radius: 8px;
+}
+
+/* Sidebar Collapse */
+.sidebar.collapsed {
+    width: 50px;
+}
+
+/* Hide Text on Collapse */
+.sidebar.collapsed .nav-link span {
+    display: none;
+}
+
+/* Center Align Icons in Collapsed Mode */
+.sidebar.collapsed .nav-link {
+    justify-content: center;
+}
+
+.sidebar.collapsed .nav-link i {
+    margin-right: 0;
+}
+
+/* Sidebar Expands on Hover (Optional) */
+/* .sidebar.collapsed:hover {
+    width: 250px;
+} */
+
+/* Card Design for Better UI */
+/* .card {
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* Buttons */
+.btn-primary {
+    background: rgb(2, 198, 247) !important;
+    border-radius: 8px;
+}
+
+.btn-danger {
+    background: #dc3545 !important;
+    border-radius: 8px;
+}
+/* Neon Teal Color for Progress Bars */
+/* Card Style Adjustments */
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 20px;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+}
+
+.dashboard-card {
+    text-decoration: none;
+    background: linear-gradient(to bottom right, #e6f8fc, #1affcd);
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
+}
+
+.dashboard-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-content h3 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.progress-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(#1f06ac var(--progress), #003366 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10px;
+    
+}
+
+.progress-circle span {
+    color: purple;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.goal {
+    color: black;
+    font-size: 14px;
+}

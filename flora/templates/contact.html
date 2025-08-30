@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+    <!-- Success Message (frontend only) -->
+    {% if request.method == "POST" %}
+        <div id="form-success" class="alert alert-success alert-dismissible fade show" role="alert"
+             style="background-color: #d4edda; border: none; font-size: 1rem;">
+            Your message has been sent successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    <div class="card shadow-lg p-4 mb-2" style="height:auto;">
+        <h3 class="card-title mb-4">Contact Us</h3>
+        <form method="POST" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                <div class="invalid-feedback">
+                    Please enter your name.
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                <div class="invalid-feedback">
+                    Please enter a valid email address.
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="comment" class="form-label">Message</label>
+                <textarea class="form-control" id="comment" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                <div class="invalid-feedback">
+                    Please write a message.
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Bootstrap validation example
+    (function () {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+
+        Array.from(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })();
+
+    // Optional: Auto-hide success message after 3 seconds
+    setTimeout(() => {
+        const alert = document.getElementById('form-success');
+        if (alert) {
+            alert.classList.remove('show');
+            alert.classList.add('hide');
+        }
+    }, 3000);
+</script>
+{% endblock content %}
