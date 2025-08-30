@@ -25,3 +25,5 @@ urlpatterns = [
     path("search-suggestions/", views.search_suggestions, name="search_suggestions"),
    ]
  
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
