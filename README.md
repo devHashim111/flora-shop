@@ -8,6 +8,22 @@ Currently in its **alpha release**, Flora is open for public exploration and tes
 🔗 **Live Store:** [shop-amber-nine-46.vercel.app](https://shop-amber-nine-46.vercel.app)  
 🔐 **Admin Panel:** [shop-amber-nine-46.vercel.app/admin/](https://shop-amber-nine-46.vercel.app/admin/)  
 
+
+## 📸 Screenshots
+
+### Homepage
+![Homepage](assets/flora.png)
+
+### Product Page
+![Product Page](assets/flora2.png)
+
+## 🎥 Admin Panel
+![Admin](assets/admin-panel.png)
+
+## 🎥 Admin Panel
+![Admin](assets/admin-panel2.png)
+
+
 📂 **Admin Credentials:**  
 
 Username: testing
